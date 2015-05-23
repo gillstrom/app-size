@@ -7,7 +7,7 @@ test('path', function (t) {
 
 	appSize('/Applications/Safari.app', function (err, size) {
 		t.assert(!err, err);
-		t.assert(size);
+		t.assert(typeof size === 'number');
 	});
 });
 
@@ -16,7 +16,7 @@ test('name', function (t) {
 
 	appSize('Safari', function (err, size) {
 		t.assert(!err, err);
-		t.assert(size);
+		t.assert(typeof size === 'number');
 	});
 });
 
@@ -25,6 +25,6 @@ test('bundle', function (t) {
 
 	appSize('com.apple.Safari', function (err, size) {
 		t.assert(!err, err);
-		t.assert(size);
+		t.assert(typeof size === 'number');
 	});
 });

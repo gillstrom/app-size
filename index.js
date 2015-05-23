@@ -18,7 +18,7 @@ function getSize(path, cb) {
 			return;
 		}
 
-		cb(null, stdout);
+		cb(null, parseInt(stdout));
 	});
 }
 
