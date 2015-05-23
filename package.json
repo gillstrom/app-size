@@ -1,0 +1,30 @@
+{
+  "name": "app-size",
+  "version": "1.0.0",
+  "description": "Get an app's size in byte (OS X)",
+  "files": [
+    "index.js",
+    "cli.js"
+  ],
+  "bin": "cli.js",
+  "repository": "gillstrom/app-size",
+  "scripts": {
+    "test": "node test.js"
+  },
+  "keywords": [
+    "app",
+    "cli",
+    "cli-js",
+    "osx",
+    "size"
+  ],
+  "author": "Andreas Gillström <andreasgillstrom@gmail.com> (http://hynden.se)",
+  "license": "MIT",
+  "dependencies": {
+    "app-path": "^1.0.1",
+    "meow": "^3.1.0"
+  },
+  "devDependencies": {
+    "ava": "0.0.4"
+  }
+}
