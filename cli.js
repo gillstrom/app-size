@@ -9,7 +9,7 @@ var cli = meow({
 		'	$ app-size Safari',
 		'	$ app-size /Applications/Safari.app',
 		'	$ app-size com.apple.Safari'
-	].join('\n')
+	]
 });
 
 if (!cli.input.length) {
