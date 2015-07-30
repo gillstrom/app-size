@@ -1,6 +1,6 @@
 # app-size [![Build Status](https://travis-ci.org/gillstrom/app-size.svg?branch=master)](https://travis-ci.org/gillstrom/app-size)
 
-> Get an app's size in byte (OS X)
+> Get an .app's size in byte
 
 
 ## Install
