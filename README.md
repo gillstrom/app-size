@@ -15,19 +15,19 @@ $ npm install --save app-size
 ```js
 var appSize = require('app-size');
 
-appSize('Safari', function (err, size) {
+appSize('Safari').then(size => {
 	console.log(size);
-	// => 34058118
+	//=> 34058118
 });
 
-appSize('/Applications/Safari.app', function (err, size) {
+appSize('/Applications/Safari.app').then(size => {
 	console.log(size);
-	// => 34058118
+	//=> 34058118
 });
 
-appSize('com.apple.Safari', function (err, size) {
+appSize('com.apple.Safari').then(size => {
 	console.log(size);
-	// => 34058118
+	//=> 34058118
 });
 ```
 

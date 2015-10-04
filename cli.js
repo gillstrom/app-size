@@ -17,11 +17,9 @@ if (!cli.input.length) {
 	process.exit(1);
 }
 
-appSize(cli.input[0], function (err, size) {
-	if (err) {
+appSize(cli.input[0])
+	.then(console.log)
+	.catch(function (err) {
 		console.error(err.message);
 		process.exit(1);
-	}
-
-	console.log(size);
-});
+	});
