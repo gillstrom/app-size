@@ -2,32 +2,32 @@
 var test = require('ava');
 var appSize = require('./');
 
-test('path', function (t) {
+test('path', t => {
 	t.plan(1);
 
-	appSize('/Applications/Safari.app').then(function (size) {
+	appSize('/Applications/Safari.app').then(size => {
 		t.assert(typeof size === 'number');
-	}).catch(function (err) {
+	}).catch(err => {
 		t.assert(!err, err);
 	});
 });
 
-test('name', function (t) {
+test('name', t => {
 	t.plan(1);
 
-	appSize('Safari').then(function (size) {
+	appSize('Safari').then(size => {
 		t.assert(typeof size === 'number');
-	}).catch(function (err) {
+	}).catch(err => {
 		t.assert(!err, err);
 	});
 });
 
-test('bundle', function (t) {
+test('bundle', t => {
 	t.plan(1);
 
-	appSize('com.apple.Safari').then(function (size) {
+	appSize('com.apple.Safari').then(size => {
 		t.assert(typeof size === 'number');
-	}).catch(function (err) {
+	}).catch(err => {
 		t.assert(!err, err);
 	});
 });
