@@ -13,7 +13,7 @@ $ npm install --save app-size
 ## Usage
 
 ```js
-var appSize = require('app-size');
+const appSize = require('app-size');
 
 appSize('Safari').then(size => {
 	console.log(size);
