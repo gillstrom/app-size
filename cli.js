@@ -2,6 +2,7 @@
 'use strict';
 var meow = require('meow');
 var appSize = require('./');
+var prettyBytes = require('pretty-bytes');
 
 var cli = meow({
 	help: [
@@ -18,7 +19,9 @@ if (!cli.input.length) {
 }
 
 appSize(cli.input[0])
-	.then(console.log)
+	.then(function (res) {
+		console.log(prettyBytes(res));
+	})
 	.catch(function (err) {
 		console.error(err.message);
 		process.exit(1);
