@@ -1,28 +1,24 @@
 'use strict';
-var execFile = require('child_process').execFile;
-var fs = require('fs');
-var pify = require('pify');
-var Promise = require('pinkie-promise');
-var appPath = require('app-path');
+const fs = require('fs');
+const appPath = require('app-path');
+const execa = require('execa');
+const pify = require('pify');
 
-function getSize(path) {
-	var cmd = 'mdls';
-	var args = [
+const getSize = path => {
+	const cmd = 'mdls';
+	const args = [
 		'-name',
 		'kMDItemFSSize',
 		'-raw',
 		path
 	];
 
-	return pify(execFile, Promise)(cmd, args)
-		.then(function (size) {
-			return parseInt(size, 10);
-		});
-}
+	return execa(cmd, args).then(res => parseInt(res.stdout, 10));
+};
 
-module.exports = function (app) {
+module.exports = app => {
 	if (process.platform !== 'darwin') {
-		return Promise.reject(new Error('Only OS X systems are supported'));
+		return Promise.reject(new Error('Only OS X is supported'));
 	}
 
 	if (typeof app !== 'string') {
@@ -30,16 +26,16 @@ module.exports = function (app) {
 	}
 
 	return pify(fs.stat)(app)
-		.then(function (stats) {
+		.then(stats => {
 			if (!stats.isDirectory()) {
 				return Promise.reject(new Error('Expected an application'));
 			}
 
 			return getSize(app);
 		})
-		.catch(function (err) {
+		.catch(err => {
 			if (err && err.code === 'ENOENT') {
-				return pify(appPath, Promise)(app).then(getSize);
+				return appPath(app).then(getSize);
 			}
 
 			return Promise.reject(err);

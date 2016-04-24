@@ -1,8 +1,8 @@
 #!/usr/bin/env node
 'use strict';
 const meow = require('meow');
-const appSize = require('./');
 const prettyBytes = require('pretty-bytes');
+const appSize = require('./');
 
 const cli = meow(`
 	Examples
@@ -16,4 +16,4 @@ if (!cli.input.length) {
 	process.exit(1);
 }
 
-appSize(cli.input[0]).then(res => console.log(prettyBytes(res)))
+appSize(cli.input[0]).then(res => console.log(prettyBytes(res)));
