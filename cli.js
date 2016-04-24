@@ -5,7 +5,7 @@ const prettyBytes = require('pretty-bytes');
 const appSize = require('./');
 
 const cli = meow(`
-	Examples
+	Example
 		$ app-size Safari
 		$ app-size /Applications/Safari.app
 		$ app-size com.apple.Safari

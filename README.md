@@ -41,7 +41,7 @@ $ npm install --global app-size
 ```
 $ app-size --help
 
-  Examples
+  Example
     $ app-size Safari
     $ app-size /Applications/Safari.app
     $ app-size com.apple.Safari
